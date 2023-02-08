@@ -23,8 +23,8 @@ from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data="cbmenu"),
-                InlineKeyboardButton(text="• Cʟᴏsᴇ", callback_data="cls"),
+                InlineKeyboardButton(text="✧𝙼𝙴𝙽𝚄✧", callback_data="cbmenu"),
+                InlineKeyboardButton(text="❅𝙲𝙻𝙾𝚂𝙴❅", callback_data="cls"),
             ]
         ]
     )
