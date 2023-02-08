@@ -37,7 +37,7 @@ async def _human_time_duration(seconds):
 
 
 @Client.on_message(other_filters2)
-async def start(_, message: Message):
+async def mstart(_, message: Message):
         await message.reply_text(
         f""" Hey There •🎙 {message.from_user.mention()} \n Myself {BOT_NAME}. \n Is Now A Famous
     & Safe Bot For Playing
