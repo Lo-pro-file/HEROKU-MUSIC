@@ -171,20 +171,20 @@ async def play(c: Client, m: Message):
                       reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("• Support", url=f"https://t.me/BotDuniyaXd"),
-                            InlineKeyboardButton("• Close", callback_data="cls")
+                            InlineKeyboardButton("❅ 𝐆𝐑𝐎𝐔𝐏 ❅", url=f"https://t.me/TG_FRIENDSS"),
+                            InlineKeyboardButton("✧ 𝐂𝐋𝐎𝐒𝐄 ✧", callback_data="cls")
                         ]
                     ]
                 )
             )
         else:
             suhu = await m.reply_text(
-        f"**𝗖𝗿𝗼𝘄 Downloading**\n\n100% ▓▓▓▓▓▓▓▓▓▓▓▓ 00%"
+        f"**DOWNLOADING...**\n\n100% ▓▓▓▓▓▓▓▓▓▓▓▓ 00%"
     )
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             if search == 0:
-                await suhu.edit("💬 **No results Found.**")
+                await suhu.edit("💬 **No results Found.\n Type Again With Correct Song Name.**")
             else:
                 songname = search[0]
                 title = search[0]
@@ -200,7 +200,7 @@ async def play(c: Client, m: Message):
                 playimg = await play_thumb(videoid)
                 queueimg = await queue_thumb(videoid)
                 await suhu.edit(
-                            f"**𝙉𝙪𝙡𝙡 Downloader**\n\n**Title**: {title[:22]}\n\n100% ▓▓▓▓▓▓▓▓▓▓▓▓0%\n\n**Time Taken**: 00:00 Seconds\n\n**Converting Audio[FFmpeg Process]**"
+                            f"**DOWNLOADING...**\n\n**Title**: {title[:22]}\n\n100% ▓▓▓▓▓▓▓▓▓▓▓▓0%\n\n**Time Taken**: 00:00 Seconds\n\n**Converting Audio[FFmpeg Process]**"
                         )
                 format = "bestaudio"
                 abhi, ytlink = await ytdl(format, url)
@@ -221,7 +221,7 @@ async def play(c: Client, m: Message):
                     else:
                         try:
                             await suhu.edit(
-                            f"**𝙉𝙪𝙡𝙡 Downloader**\n\n**Title**: {title[:22]}\n\n0% ████████████100%\n\n**Time Taken**: 00:00 Seconds\n\n**Converting Audio[FFmpeg Process]**"
+                            f"**DOWNLOADING...**\n\n**Title**: {title[:22]}\n\n0% ████████████100%\n\n**Time Taken**: 00:00 Seconds\n\n**Converting Audio[FFmpeg Process]**"
                         )
                             await call_py.join_group_call(
 
