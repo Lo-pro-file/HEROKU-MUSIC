@@ -80,9 +80,9 @@ async def get_uptime(client: Client, message: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        "🤖 🅡🅐🅘🅒🅗🅤  🅑🅞🅣  🅢🅣🅐🅣🅢:\n"
-        f"➤ **ᴜᴘᴛɪᴍᴇ:** `{uptime}`\n"
-        f"➤ **sᴛᴀʀᴛ ᴛɪᴍᴇ:** `{START_TIME_ISO}`"
+        "🌷 𝐓𝐆 𝐌𝐔𝐒𝐈𝐂 𝐁𝐎𝐓 𝐒𝐓𝐀𝐓𝐒 🌷:\n"
+        f"➤ **❅𝐔𝐏𝐓𝐈𝐌𝐄❅:** `{uptime}`\n"
+        f"➤ **❅𝐒𝐓𝐀𝐑𝐓 𝐓𝐈𝐌𝐄❅:** `{START_TIME_ISO}`"
     )
 
 @Client.on_message(command(["ping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
@@ -106,10 +106,10 @@ async def start(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "☢ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "☢ 𝐆𝐑𝐎𝐔𝐏 ☢", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "❅ 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ❅", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )
                 ]
             ]
