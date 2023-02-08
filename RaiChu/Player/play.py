@@ -139,7 +139,7 @@ async def play(c: Client, m: Message):
                 await suhu.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"**🥳𝐀𝐝𝐝𝐞𝐝 𝐎𝐧 𝐋𝐢𝐧𝐞 »** `{pos}`\n\n**💞𝐒𝐨𝐧𝐠 𝐈𝐧𝐟𝐨:** [{songname}]({link}) | `𝐌𝐮𝐬𝐢𝐜`\n**🌷𝐂𝐡𝐚𝐭 𝐈𝐝:** `{chat_id}`\n**✨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:** {m.from_user.mention()}",
+                    caption=f"**🥳𝐀𝐝𝐝𝐞𝐝 𝐎𝐧 𝐋𝐢𝐧𝐞 »** `{pos}`\n\n**💞𝐒𝐨𝐧𝐠 𝐈𝐧𝐟𝐨:** [{songname}]({link}) | `𝐌𝐮𝐬𝐢𝐜`\n\n**🌷𝐂𝐡𝐚𝐭 𝐈𝐝:** `{chat_id}`\n\n**✨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:** {m.from_user.mention()}",
                     reply_markup=InlineKeyboardMarkup(buttons),
                 )
             else:
@@ -156,7 +156,7 @@ async def play(c: Client, m: Message):
                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                 await m.reply_photo(
                     photo=f"{IMG_2}",
-                    caption=f"**✨𝐍𝐚𝐦𝐞:-** [{songname}]({link})\n **🌷𝐂𝐡𝐚𝐭 𝐈𝐝:-** `{chat_id}`\n**🎉𝐒𝐭𝐚𝐭𝐮𝐬:-** `𝐏𝐥𝐚𝐲𝐢𝐧𝐠`\n**✨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:-** {requester}\n**🙂𝐏𝐥𝐚𝐲𝐢𝐧𝐠 𝐓𝐲𝐩𝐞:-** `𝐌𝐮𝐬𝐢𝐜`",
+                    caption=f"**✨𝐍𝐚𝐦𝐞:-** [{songname}]({link})\n\n**🌷𝐂𝐡𝐚𝐭 𝐈𝐝:-** `{chat_id}`\n\n**🎉𝐒𝐭𝐚𝐭𝐮𝐬:-** `𝐏𝐥𝐚𝐲𝐢𝐧𝐠`\n\n**✨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:-** {requester}\n\n**🙂𝐏𝐥𝐚𝐲𝐢𝐧𝐠 𝐓𝐲𝐩𝐞:-** `𝐌𝐮𝐬𝐢𝐜`",
                     reply_markup=InlineKeyboardMarkup(buttons),
                 )
              except Exception as e:
@@ -215,7 +215,7 @@ async def play(c: Client, m: Message):
                         )
                         await m.reply_photo(
                             photo=queueimg,
-                            caption=f"🥳𝐀𝐝𝐝𝐞𝐝 𝐎𝐧 𝐋𝐢𝐧𝐞 {pos}\n\n✨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:{requester}\n💞𝐒𝐨𝐧𝐠 𝐈𝐧𝐟𝐨- [🥀𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞🥀]({info})",
+                            caption=f"🥳𝐀𝐝𝐝𝐞𝐝 𝐎𝐧 𝐋𝐢𝐧𝐞 {pos}\n\n✨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:{requester}\n\n💞𝐒𝐨𝐧𝐠 𝐈𝐧𝐟𝐨- [🥀𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞🥀]({info})",
                             reply_markup=InlineKeyboardMarkup(keyboard),
                         )
                     else:
