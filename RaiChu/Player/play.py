@@ -56,7 +56,7 @@ useer = "NaN"
 ACTV_CALLS = []
 
     
-@Client.on_message(command(["play", f"play@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["play", "vplay", f"play@{BOT_USERNAME}"]) & other_filters)
 async def play(c: Client, m: Message):
     await m.delete()
     replied = m.reply_to_message
@@ -139,7 +139,7 @@ async def play(c: Client, m: Message):
                 await suhu.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"💡 **Track added to queue »** `{pos}`\n\n🏷 **Name:** [{songname}]({link}) | `music`\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {m.from_user.mention()}",
+                    caption=f"**🥳𝐀𝐝𝐝𝐞𝐝 𝐎𝐧 𝐋𝐢𝐧𝐞 »** `{pos}`\n\n**💞𝐒𝐨𝐧𝐠 𝐈𝐧𝐟𝐨:** [{songname}]({link}) | `𝐌𝐮𝐬𝐢𝐜`\n**🌷𝐂𝐡𝐚𝐭 𝐈𝐝:** `{chat_id}`\n**✨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:** {m.from_user.mention()}",
                     reply_markup=InlineKeyboardMarkup(buttons),
                 )
             else:
@@ -156,7 +156,7 @@ async def play(c: Client, m: Message):
                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                 await m.reply_photo(
                     photo=f"{IMG_2}",
-                    caption=f"🏷 **Name:** [{songname}]({link})\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {requester}\n📹 **Stream type:** `Music`",
+                    caption=f"**✨𝐍𝐚𝐦𝐞:-** [{songname}]({link})\n **🌷𝐂𝐡𝐚𝐭 𝐈𝐝:-** `{chat_id}`\n**🎉𝐒𝐭𝐚𝐭𝐮𝐬:-** `𝐏𝐥𝐚𝐲𝐢𝐧𝐠`\n**✨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:-** {requester}\n**🙂𝐏𝐥𝐚𝐲𝐢𝐧𝐠 𝐓𝐲𝐩𝐞:-** `𝐌𝐮𝐬𝐢𝐜`",
                     reply_markup=InlineKeyboardMarkup(buttons),
                 )
              except Exception as e:
@@ -167,24 +167,24 @@ async def play(c: Client, m: Message):
         if len(m.command) < 2:
          await m.reply_photo(
                      photo=f"{IMG_5}",
-                    caption="**Usage: /play Give a Title Song To Play Music or /vplay for Video Play**",
+                    caption="**🌹𝐓𝐘𝐏𝐄:- /play 𝐆𝐢𝐯𝐞  𝐚  𝐓𝐢𝐭𝐥𝐞  𝐒𝐨𝐧𝐠  𝐓𝐨  𝐏𝐥𝐚𝐲  𝐌𝐮𝐬𝐢𝐜🥀**",
                       reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton("❅ 𝐆𝐑𝐎𝐔𝐏 ❅", url=f"https://t.me/TG_FRIENDSS"),
-                            InlineKeyboardButton("✧ 𝐂𝐋𝐎𝐒𝐄 ✧", callback_data="cls")
+                            InlineKeyboardButton("✧ 𝐎𝐅𝐅𝐈𝐂𝐄 ✧", url=f"https://t.me/VIP_CREATORS")
                         ]
                     ]
                 )
             )
         else:
             suhu = await m.reply_text(
-        f"**DOWNLOADING...**\n\n100% ▓▓▓▓▓▓▓▓▓▓▓▓ 00%"
+        f"⚡"
     )
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             if search == 0:
-                await suhu.edit("💬 **No results Found.\n Type Again With Correct Song Name.**")
+                await suhu.edit("💬 **No Results Found.\n Type Again With Correct Song Name.**")
             else:
                 songname = search[0]
                 title = search[0]
@@ -195,12 +195,12 @@ async def play(c: Client, m: Message):
                 gcname = m.chat.title
                 videoid = search[4]
                 dlurl = f"https://www.youtubepp.com/watch?v={videoid}"
-                info = f"https://t.me/elsaa_Ro_bot?start=info_{videoid}"
+                info = f"https://t.me/TG_MANAGER_ROBOT?start=info_{videoid}"
                 keyboard = stream_markup(user_id, dlurl)
                 playimg = await play_thumb(videoid)
                 queueimg = await queue_thumb(videoid)
                 await suhu.edit(
-                            f"**DOWNLOADING...**\n\n**Title**: {title[:22]}\n\n100% ▓▓▓▓▓▓▓▓▓▓▓▓0%\n\n**Time Taken**: 00:00 Seconds\n\n**Converting Audio[FFmpeg Process]**"
+                            f"𝐏𝐥𝐚𝐲𝐢𝐧𝐠 𝐖𝐚𝐢𝐭 𝐁𝐚𝐛𝐲 😁"
                         )
                 format = "bestaudio"
                 abhi, ytlink = await ytdl(format, url)
@@ -215,13 +215,13 @@ async def play(c: Client, m: Message):
                         )
                         await m.reply_photo(
                             photo=queueimg,
-                            caption=f"⏳ Added to Queue at {pos}\n\n👤Requested By:{requester}\nInformation- [Here]({info})",
+                            caption=f"🥳𝐀𝐝𝐝𝐞𝐝 𝐎𝐧 𝐋𝐢𝐧𝐞 {pos}\n\n✨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:{requester}\n💞𝐒𝐨𝐧𝐠 𝐈𝐧𝐟𝐨- [🥀𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞🥀]({info})",
                             reply_markup=InlineKeyboardMarkup(keyboard),
                         )
                     else:
                         try:
                             await suhu.edit(
-                            f"**DOWNLOADING...**\n\n**Title**: {title[:22]}\n\n0% ████████████100%\n\n**Time Taken**: 00:00 Seconds\n\n**Converting Audio[FFmpeg Process]**"
+                            f"❣️𝐏𝐥𝐚𝐲𝐢𝐧𝐠 𝐖𝐚𝐢𝐭 𝐁𝐚𝐛𝐲😁"
                         )
                             await call_py.join_group_call(
 
@@ -247,7 +247,7 @@ async def play(c: Client, m: Message):
                             requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                             await m.reply_photo(
                                 photo=playimg,
-                                caption=f"📡 Started Streaming Audio 💡\n\n👤Requested By:{requester}\nInformation- [Here]({info})",
+                                caption=f"🎉𝐒𝐭𝐚𝐫𝐭𝐞𝐝 𝐏𝐥𝐲𝐢𝐧𝐠 𝐔𝐫 𝐂𝐮𝐭𝐞 𝐌𝐮𝐬𝐢𝐜😍\n\n✨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:{requester}\n💞𝐒𝐨𝐧𝐠 𝐈𝐧𝐟𝐨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:- [🥀𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞🥀]({info})",
                                 reply_markup=InlineKeyboardMarkup(keyboard),
                             )
                         except Exception as ep:
