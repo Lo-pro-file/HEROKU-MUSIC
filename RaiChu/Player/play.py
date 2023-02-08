@@ -200,7 +200,7 @@ async def play(c: Client, m: Message):
                 playimg = await play_thumb(videoid)
                 queueimg = await queue_thumb(videoid)
                 await suhu.edit(
-                            f"𝐏𝐥𝐚𝐲𝐢𝐧𝐠 𝐖𝐚𝐢𝐭 𝐁𝐚𝐛𝐲 😁"
+                            f"🌹𝐋𝐨𝐚𝐝𝐢𝐧𝐠...😘"
                         )
                 format = "bestaudio"
                 abhi, ytlink = await ytdl(format, url)
