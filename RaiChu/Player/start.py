@@ -39,31 +39,24 @@ async def _human_time_duration(seconds):
 @Client.on_message(other_filters2)
 async def start(_, message: Message):
         await message.reply_text(
-        f"""Hello {message.from_user.mention()}, My name is {BOT_NAME}.
-I'm a telegram streaming bot with some useful features.
-Feel free to add me to your groups.
+        f""" Hey There •🎙 {message.from_user.mention()} \n Myself {BOT_NAME}. \n Is Now A Famous
+    & Safe Bot For Playing
+    Music In Many Groups
+    ━━━━━━━━━━
+    You Can Play Music
+    From Your Spotify
+    Resso, AppleMusic &
+    Soundcloud Too
+    ━━━━━━━━━━━━
+ ▰▰▰▰▰▰▰▰▰▰▰▰▰
+     THE VIP BOY
+ ▰▰▰▰▰▰▰▰▰▰▰▰▰
         """,
         reply_markup=InlineKeyboardMarkup(
             [
-                [                   
-                    InlineKeyboardButton(
-                        "Commands & Help ❔", callback_data="cbbasic"
-                    ),
-                ],
                 [
                     InlineKeyboardButton(
-                        "How to Use Me ❓", callback_data="cbhowtouse"
-                    ),
-                  ],[
-                    InlineKeyboardButton(
-                       "Updates", url=f"https://t.me/{UPDATES_CHANNEL}"
-                    ),
-                    InlineKeyboardButton(
-                       "Support", url=f"https://t.me/{GROUP_SUPPORT}"
-                    )
-                ],[
-                    InlineKeyboardButton(
-                        "➕ Add Me To Your Group ➕",
+                        "🌹𝐀𝐝𝐝 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩🌹",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
                     )
                 ]
@@ -73,16 +66,16 @@ Feel free to add me to your groups.
     )
 
 
-@Client.on_message(command(["repo", "source"]) & filters.group & ~filters.edited)
+@Client.on_message(command(["mrepo", "msource"]) & filters.group & ~filters.edited)
 async def help(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/f01f58c3d9b187ae1d8a1.jpg",
+        photo=f"https://telegra.ph/file/b2b4fee33e6c7d2a5651a.jpg",
         caption=f"""Here Is The Source Code Fork And Give Stars ✨""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        " ʀᴇᴘᴏ ⚒️", url=f"https://github.com/AMANTYA1/RaiChu-MusicV2")
+                        " ʀᴇᴘᴏ ⚒️", url=f"https://github.com/THE-VIP-BOY-OP")
                 ]
             ]
         ),
