@@ -16,12 +16,12 @@ from pyrogram.types import (
 from RaiChu.inline import stream_markup
 
 bttn = InlineKeyboardMarkup(
-    [[InlineKeyboardButton("🔙 Go Back", callback_data="cbmenu")]]
+    [[InlineKeyboardButton("🔙 𝐆𝐎 𝐁𝐀𝐂𝐊 ✦", callback_data="cbmenu")]]
 )
 
 
 bcl = InlineKeyboardMarkup(
-    [[InlineKeyboardButton("🗑 Close", callback_data="cls")]]
+    [[InlineKeyboardButton("🗑 𝐂𝐋𝐎𝐒𝐄 ✦", callback_data="cls")]]
 )
 
 
@@ -47,10 +47,10 @@ async def skip(client, m: Message):
         [
             [
                 InlineKeyboardButton(
-                    text="• Mᴇɴᴜ", callback_data="cbmenu"
+                    text="❅ 𝐌𝐄𝐍𝐔 ❅", callback_data="cbmenu"
                 ),
                 InlineKeyboardButton(
-                    text="• Cʟᴏsᴇ", callback_data="cls"
+                    text="✧ 𝐂𝐋𝐎𝐒𝐄 ✧", callback_data="cls"
                 ),
             ]
         ]
@@ -60,11 +60,11 @@ async def skip(client, m: Message):
     if len(m.command) < 2:
         op = await skip_current_song(chat_id)
         if op == 0:
-            await m.reply("❌ nothing is currently playing")
+            await m.reply("❌ 𝐍𝐎𝐓𝐇𝐈𝐍𝐆 𝐈𝐒 𝐂𝐔𝐑𝐑𝐄𝐍𝐓𝐋𝐘 𝐏𝐋𝐀𝐘𝐈𝐍𝐆 🥺")
         elif op == 1:
-            await m.reply("✅ __Queues__ **is empty.**\n\n**• userbot leaving voice chat**")
+            await m.reply("✅ __𝐐𝐔𝐄𝐔𝐄𝐒__ **𝐈𝐒 𝐄𝐌𝐏𝐓𝐘.**\n\n**• 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐋𝐄𝐀𝐕𝐈𝐍𝐆 𝐕𝐎𝐈𝐂𝐄𝐂𝐇𝐀𝐓**")
         elif op == 2:
-            await m.reply("🗑️ **Clearing the Queues**\n\n**• userbot leaving voice chat**")
+            await m.reply("🗑️ **𝐂𝐋𝐄𝐀𝐑𝐈𝐍𝐆 𝐓𝐇𝐄 𝐐𝐔𝐄𝐔𝐄𝐒**\n\n**• 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐋𝐄𝐀𝐕𝐈𝐍𝐆 𝐕𝐎𝐈𝐂𝐄𝐂𝐇𝐀𝐓**")
         else:
             await m.reply_photo(
                 photo=f"{IMG_3}",
