@@ -41,7 +41,7 @@ def audio_markup(user_id):
 def stream_markup(user_id, dlurl):
   buttons = [
     [
-      InlineKeyboardButton(text="🇮🇳 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 🇮🇳", url=f"https://t.me/TG_MANAGER_ROBOT?startgroup=true")
+      InlineKeyboardButton(text="🇮🇳 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 🇮🇳", url=f"https://t.me/WD_Music_bot?startgroup=true")
     ],
     [
       InlineKeyboardButton(text="II", callback_data=f'cbpause | {user_id}'),
@@ -50,8 +50,8 @@ def stream_markup(user_id, dlurl):
       InlineKeyboardButton(text="▢", callback_data=f'cbstop | {user_id}')
     ],
     [
-      InlineKeyboardButton(text="🌷𝐉𝐨𝐢𝐧 𝐏𝐥𝐬🍒", url=f"https://t.me/VIP_CREATORS"),
-      InlineKeyboardButton(text="🍒𝐂𝐨𝐦𝐞 𝐁𝐚𝐛𝐲😘", url=f"https://t.me/TG_FRIENDSS")
+      InlineKeyboardButton(text="🌷𝐉𝐨𝐢𝐧 𝐏𝐥𝐬🍒", url=f"https://t.me/WOODcraft_Mirror_Topic"),
+      InlineKeyboardButton(text="🍒𝐂𝐨𝐦𝐞 𝐁𝐚𝐛𝐲😘", url=f"https://t.me/Opleech")
     ],
     [
       InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data=f'cls'),
@@ -62,7 +62,7 @@ def stream_markup(user_id, dlurl):
 def menu_markup(user_id):
   buttons = [
      [
-      InlineKeyboardButton(text="🇮🇳 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 🇮🇳", url=f"https://t.me/TG_MANAGER_ROBOT?startgroup=true")
+      InlineKeyboardButton(text="🇮🇳 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 🇮🇳", url=f"https://t.me/WD_Music_bot?startgroup=true")
     ],
      [InlineKeyboardButton(text="II", callback_data=f'cbpause | {user_id}'),
       InlineKeyboardButton(text="▷", callback_data=f'cbresume | {user_id}')],
@@ -70,7 +70,7 @@ def menu_markup(user_id):
       InlineKeyboardButton(text="▢", callback_data=f'cbstop | {user_id}')
     ],
      [InlineKeyboardButton(text="🔇", callback_data=f'cbmute | {user_id}'),
-      InlineKeyboardButton(text="💞𝐂𝐨𝐦𝐞 𝐁𝐚𝐛𝐲💞", url=f"https://t.me/TG_FRIENDSS"),
+      InlineKeyboardButton(text="💞𝐂𝐨𝐦𝐞 𝐁𝐚𝐛𝐲💞", url=f"https://t.me/Opleech"),
       InlineKeyboardButton(text="🔊", callback_data=f'cbunmute | {user_id}')],
   ]
   return buttons
@@ -78,7 +78,7 @@ def menu_markup(user_id):
 def song_download_markup(videoid):
     buttons = [
         [
-      InlineKeyboardButton(text="🇮🇳 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 🇮🇳", url=f"https://t.me/TG_MANAGER_ROBOT?startgroup=true")
+      InlineKeyboardButton(text="🇮🇳 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 🇮🇳", url=f"https://t.me/WD_Music_bot?startgroup=true")
     ],
         [
             InlineKeyboardButton(
