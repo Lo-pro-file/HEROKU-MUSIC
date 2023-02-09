@@ -7,9 +7,9 @@
         "telegram bot",
         "pyrogram"
     ],
-    "website": "https://t.me/BotDuniyaXd",
-    "repository": "https://github.com/AMANTYA1/RaiChuMusic",
-    "success_url": "https://t.me/BotDuniyaXd",
+    "website": "https://t.me/Opleech",
+    "repository": "https://github.com/angel-loveyou/HEROKU-MUSIC",
+    "success_url": "https://t.me/Opleech",
     "env": {
         "API_ID": {
             "description": "your API_ID from my.telegram.org",
