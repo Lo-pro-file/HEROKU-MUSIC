@@ -1,6 +1,6 @@
 
 
-<p align="center"><a href="https://t.me/BotDuniyaXd"><img src="https://telegra.ph/file/b2b4fee33e6c7d2a5651a.jpg" width="300"></a></p>
+<p align="center"><a href="https://t.me/BotDuniyaXd"><img src="https://te.legra.ph/file/08f1061f32fc52b45a722.jpg" width="300"></a></p>
  
 
 ## 🛠 Available Commands:
@@ -29,7 +29,7 @@ COMMAND | FUNCTION
 The easiest way to host this bot
 
 
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/SANGRAM-MUSIC/Heroku-mysic"><img src="https://img.shields.io/badge/HEROKU-DEPLOY-blue?style=plastic&logo=heroku&logoColor=yellow"width="300"heigh="100" /></a></p>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/angel-loveyou/HEROKU-MUSIC"><img src="https://img.shields.io/badge/HEROKU-DEPLOY-blue?style=plastic&logo=heroku&logoColor=yellow"width="300"heigh="100" /></a></p>
 
 
 ## VPS Deployment
@@ -53,7 +53,7 @@ The easiest way to host this bot
 
 
 ### Support & Updates 🌹
-<a href="https://t.me/TG_FRIENDSS"><img src="https://img.shields.io/badge/Join-Group%20Support-blue.svg?style=for-the-badge&logo=Telegram">
+<a href="https://t.me/WOODcraft_Mirror_Topic"><img src="https://img.shields.io/badge/Join-Group%20Support-blue.svg?style=for-the-badge&logo=Telegram">
 
-</a> <a href="https://t.me/VIP_CREATORS"><img src="https://img.shields.io/badge/Join-Updates%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
+</a> <a href="https://t.me/Opleech"><img src="https://img.shields.io/badge/Join-Updates%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
