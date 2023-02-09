@@ -171,8 +171,8 @@ async def play(c: Client, m: Message):
                       reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("❅ 𝐆𝐑𝐎𝐔𝐏 ❅", url=f"https://t.me/TG_FRIENDSS"),
-                            InlineKeyboardButton("✧ 𝐎𝐅𝐅𝐈𝐂𝐄 ✧", url=f"https://t.me/VIP_CREATORS")
+                            InlineKeyboardButton("❅ 𝐆𝐑𝐎𝐔𝐏 ❅", url=f"https://t.me/WOODcraft_Mirror_Topic"),
+                            InlineKeyboardButton("✧ 𝐎𝐅𝐅𝐈𝐂𝐄 ✧", url=f"https://t.me/Opleech")
                         ]
                     ]
                 )
@@ -195,7 +195,7 @@ async def play(c: Client, m: Message):
                 gcname = m.chat.title
                 videoid = search[4]
                 dlurl = f"https://www.youtubepp.com/watch?v={videoid}"
-                info = f"https://t.me/TG_MANAGER_ROBOT?start=info_{videoid}"
+                info = f"https://t.me/TG_Manager_Robot_bot?start=info_{videoid}"
                 keyboard = stream_markup(user_id, dlurl)
                 playimg = await play_thumb(videoid)
                 queueimg = await queue_thumb(videoid)
