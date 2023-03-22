@@ -36,15 +36,13 @@ async def ytsearch(_, message: Message):
         query = message.text.split(None, 1)[1]
         m = await message.reply_text("🔎 **Searching...**")
         results = YoutubeSearch(query, max_results=5).to_dict()
-        i = 0
         text = ""
-        while i < 5:
+        for i in range(5):
             text += f"🏷 **Name:** __{results[i]['title']}__\n"
             text += f"⏱ **Duration:** `{results[i]['duration']}`\n"
             text += f"👀 **Views:** `{results[i]['views']}`\n"
             text += f"📣 **Channel:** {results[i]['channel']}\n"
             text += f"🔗: https://www.youtube.com{results[i]['url_suffix']}\n\n"
-            i += 1
         await m.edit(text, reply_markup=keyboard, disable_web_page_preview=True)
     except Exception as e:
         await m.edit(str(e))

@@ -38,9 +38,7 @@ async def join_group(client, message):
             "\n\n**or add assistant manually to your Group and try again**",
         )
         return
-    await message.reply_text(
-        f"**Userbot Succesfully Entered Chat**",
-    )
+    await message.reply_text("**Userbot Succesfully Entered Chat**")
 
 
 @Client.on_message(command(["userbotleave",

@@ -74,7 +74,7 @@ async def cbguides(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbbasic"))
 async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""ℹ️ Command Menu
+        """ℹ️ Command Menu
 
 🤷 » /id - To get user id
 
@@ -181,12 +181,7 @@ async def song_helper_cb(client, CallbackQuery):
                 text="🔙 Back",
                 callback_data=f"song_back {stype}|{videoid}",
             ),
-            InlineKeyboardButton(
-                text="✖️ Close ", callback_data=f"cls"
-            ),
-        )
-        return await CallbackQuery.edit_message_reply_markup(
-            reply_markup=keyboard
+            InlineKeyboardButton(text="✖️ Close ", callback_data="cls"),
         )
     else:
         try:
@@ -219,13 +214,12 @@ async def song_helper_cb(client, CallbackQuery):
                 text="🔙 Back",
                 callback_data=f"song_back {stype}|{videoid}",
             ),
-            InlineKeyboardButton(
-                text="✖️ Close", callback_data=f"cls"
-            ),
+            InlineKeyboardButton(text="✖️ Close", callback_data="cls"),
         )
-        return await CallbackQuery.edit_message_reply_markup(
-            reply_markup=keyboard
-        )
+
+    return await CallbackQuery.edit_message_reply_markup(
+        reply_markup=keyboard
+    )
 
 @Client.on_callback_query(filters.regex(pattern=r"song_download"))
 async def song_download_cb(client, CallbackQuery):
@@ -243,7 +237,6 @@ async def song_download_cb(client, CallbackQuery):
     title = (x["title"]).title()
     title = re.sub("\W+", " ", title)
     thumb_image_path = await CallbackQuery.message.download()
-    duration = x["duration"]
     if stype == "video":
         thumb_image_path = await CallbackQuery.message.download()
         width = CallbackQuery.message.photo.width
@@ -258,6 +251,7 @@ async def song_download_cb(client, CallbackQuery):
             )
         except Exception as e:
             return await mystic.edit_text("error".format(e))
+        duration = x["duration"]
         med = InputMediaVideo(
             media=file_path,
             duration=duration,

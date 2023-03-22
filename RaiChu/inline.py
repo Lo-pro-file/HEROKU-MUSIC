@@ -27,59 +27,96 @@ def ytsearch(query):
         return 0
 
 def audio_markup(user_id):
-  buttons = [
-    [
-      InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data=f'cbmenu | {user_id}'),
-      InlineKeyboardButton(text="• Iɴʟɪɴᴇ", switch_inline_query_current_chat=""),
-    ],
-    [
-      InlineKeyboardButton(text="• Cʟᴏsᴇ", callback_data=f'cls'),
-    ],
-  ]
-  return buttons
+    return [
+        [
+            InlineKeyboardButton(
+                text="• Mᴇɴᴜ", callback_data=f'cbmenu | {user_id}'
+            ),
+            InlineKeyboardButton(
+                text="• Iɴʟɪɴᴇ", switch_inline_query_current_chat=""
+            ),
+        ],
+        [InlineKeyboardButton(text="• Cʟᴏsᴇ", callback_data='cls')],
+    ]
 
 def stream_markup(user_id, dlurl):
-  buttons = [
-    [
-      InlineKeyboardButton(text="🇮🇳 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 🇮🇳", url=f"https://t.me/WD_Music_bot?startgroup=true")
-    ],
-    [
-      InlineKeyboardButton(text="II", callback_data=f'cbpause | {user_id}'),
-      InlineKeyboardButton(text="▷", callback_data=f'cbresume | {user_id}'),
-      InlineKeyboardButton(text="‣‣I", callback_data=f'cbskip | {user_id}'),
-      InlineKeyboardButton(text="▢", callback_data=f'cbstop | {user_id}')
-    ],
-    [
-      InlineKeyboardButton(text="🌷𝐉𝐨𝐢𝐧 𝐏𝐥𝐬🍒", url=f"https://t.me/WOODcraft_Mirror_Topic"),
-      InlineKeyboardButton(text="🍒𝐂𝐨𝐦𝐞 𝐁𝐚𝐛𝐲😘", url=f"https://t.me/Opleech")
-    ],
-    [
-      InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data=f'cls'),
-    ],
-  ]
-  return buttons
+    return [
+        [
+            InlineKeyboardButton(
+                text="🇮🇳 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 🇮🇳",
+                url="https://t.me/WD_Music_bot?startgroup=true",
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                text="II", callback_data=f'cbpause | {user_id}'
+            ),
+            InlineKeyboardButton(
+                text="▷", callback_data=f'cbresume | {user_id}'
+            ),
+            InlineKeyboardButton(
+                text="‣‣I", callback_data=f'cbskip | {user_id}'
+            ),
+            InlineKeyboardButton(
+                text="▢", callback_data=f'cbstop | {user_id}'
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="🌷𝐉𝐨𝐢𝐧 𝐏𝐥𝐬🍒", url="https://t.me/WOODcraft_Mirror_Topic"
+            ),
+            InlineKeyboardButton(
+                text="🍒𝐂𝐨𝐦𝐞 𝐁𝐚𝐛𝐲😘", url="https://t.me/Opleech"
+            ),
+        ],
+        [InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data='cls')],
+    ]
 
 def menu_markup(user_id):
-  buttons = [
-     [
-      InlineKeyboardButton(text="🇮🇳 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 🇮🇳", url=f"https://t.me/WD_Music_bot?startgroup=true")
-    ],
-     [InlineKeyboardButton(text="II", callback_data=f'cbpause | {user_id}'),
-      InlineKeyboardButton(text="▷", callback_data=f'cbresume | {user_id}')],
-     [InlineKeyboardButton(text="‣‣I", callback_data=f'cbskip | {user_id}'),
-      InlineKeyboardButton(text="▢", callback_data=f'cbstop | {user_id}')
-    ],
-     [InlineKeyboardButton(text="🔇", callback_data=f'cbmute | {user_id}'),
-      InlineKeyboardButton(text="💞𝐂𝐨𝐦𝐞 𝐁𝐚𝐛𝐲💞", url=f"https://t.me/Opleech"),
-      InlineKeyboardButton(text="🔊", callback_data=f'cbunmute | {user_id}')],
-  ]
-  return buttons
+    return [
+        [
+            InlineKeyboardButton(
+                text="🇮🇳 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 🇮🇳",
+                url="https://t.me/WD_Music_bot?startgroup=true",
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                text="II", callback_data=f'cbpause | {user_id}'
+            ),
+            InlineKeyboardButton(
+                text="▷", callback_data=f'cbresume | {user_id}'
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="‣‣I", callback_data=f'cbskip | {user_id}'
+            ),
+            InlineKeyboardButton(
+                text="▢", callback_data=f'cbstop | {user_id}'
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="🔇", callback_data=f'cbmute | {user_id}'
+            ),
+            InlineKeyboardButton(
+                text="💞𝐂𝐨𝐦𝐞 𝐁𝐚𝐛𝐲💞", url="https://t.me/Opleech"
+            ),
+            InlineKeyboardButton(
+                text="🔊", callback_data=f'cbunmute | {user_id}'
+            ),
+        ],
+    ]
 
 def song_download_markup(videoid):
-    buttons = [
+    return [
         [
-      InlineKeyboardButton(text="🇮🇳 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 🇮🇳", url=f"https://t.me/WD_Music_bot?startgroup=true")
-    ],
+            InlineKeyboardButton(
+                text="🇮🇳 𝐀𝐝𝐝 𝐌𝐞 𝐌𝐨𝐢 𝐋𝐮𝐯 🇮🇳",
+                url="https://t.me/WD_Music_bot?startgroup=true",
+            )
+        ],
         [
             InlineKeyboardButton(
                 text="⬇️ ᴀᴜᴅɪᴏ",
@@ -97,7 +134,6 @@ def song_download_markup(videoid):
             )
         ],
     ]
-    return buttons
 
 close_mark = InlineKeyboardMarkup(
   [
