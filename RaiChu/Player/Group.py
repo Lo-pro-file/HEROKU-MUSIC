@@ -32,7 +32,7 @@ async def _human_time_duration(seconds):
     for unit, div in TIME_DURATION_UNITS:
         amount, seconds = divmod(int(seconds), div)
         if amount > 0:
-            parts.append("{} {}{}".format(amount, unit, "" if amount == 1 else "s"))
+            parts.append(f'{amount} {unit}{"" if amount == 1 else "s"}')
     return ", ".join(parts)
 
 
@@ -69,7 +69,7 @@ async def _human_time_duration(seconds):
     for unit, div in TIME_DURATION_UNITS:
         amount, seconds = divmod(int(seconds), div)
         if amount > 0:
-            parts.append("{} {}{}".format(amount, unit, "" if amount == 1 else "s"))
+            parts.append(f'{amount} {unit}{"" if amount == 1 else "s"}')
     return ", ".join(parts)
 
 

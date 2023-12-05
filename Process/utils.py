@@ -31,58 +31,56 @@ keyboard = InlineKeyboardMarkup(
 
 
 async def skip_current_song(chat_id):
-    if chat_id in QUEUE:
-        chat_queue = get_queue(chat_id)
-        if len(chat_queue) == 1:
+    if chat_id not in QUEUE:
+        return 0
+    chat_queue = get_queue(chat_id)
+    if len(chat_queue) == 1:
+        await call_py.leave_group_call(chat_id)
+        clear_queue(chat_id)
+        return 1
+    else:
+        try:
+            songname = chat_queue[1][0]
+            url = chat_queue[1][1]
+            link = chat_queue[1][2]
+            type = chat_queue[1][3]
+            Q = chat_queue[1][4]
+            if type == "Audio":
+                await call_py.change_stream(
+                    chat_id,
+                    AudioPiped(
+                        url,
+                    ),
+                )
+            elif type == "Video":
+                if Q == 360:
+                    hm = LowQualityVideo()
+                elif Q == 480:
+                    hm = MediumQualityVideo()
+                elif Q == 720:
+                    hm = HighQualityVideo()
+                await call_py.change_stream(
+                    chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
+                )
+            pop_an_item(chat_id)
+            return [songname, link, type]
+        except:
             await call_py.leave_group_call(chat_id)
             clear_queue(chat_id)
-            return 1
-        else:
-            try:
-                songname = chat_queue[1][0]
-                url = chat_queue[1][1]
-                link = chat_queue[1][2]
-                type = chat_queue[1][3]
-                Q = chat_queue[1][4]
-                if type == "Audio":
-                    await call_py.change_stream(
-                        chat_id,
-                        AudioPiped(
-                            url,
-                        ),
-                    )
-                elif type == "Video":
-                    if Q == 720:
-                        hm = HighQualityVideo()
-                    elif Q == 480:
-                        hm = MediumQualityVideo()
-                    elif Q == 360:
-                        hm = LowQualityVideo()
-                    await call_py.change_stream(
-                        chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
-                    )
-                pop_an_item(chat_id)
-                return [songname, link, type]
-            except:
-                await call_py.leave_group_call(chat_id)
-                clear_queue(chat_id)
-                return 2
-    else:
-        return 0
+            return 2
 
 
 async def skip_item(chat_id, h):
-    if chat_id in QUEUE:
-        chat_queue = get_queue(chat_id)
-        try:
-            x = int(h)
-            songname = chat_queue[x][0]
-            chat_queue.pop(x)
-            return songname
-        except Exception as e:
-            print(e)
-            return 0
-    else:
+    if chat_id not in QUEUE:
+        return 0
+    chat_queue = get_queue(chat_id)
+    try:
+        x = int(h)
+        songname = chat_queue[x][0]
+        chat_queue.pop(x)
+        return songname
+    except Exception as e:
+        print(e)
         return 0
 
 
@@ -116,8 +114,6 @@ async def stream_end_handler(_, u: Update):
            await bot.send_message(chat_id, "❌ **an error occurred**\n\n» **Clearing** __Queues__ **and leaving video chat.**")
         else:
          await bot.send_message(chat_id, f"💡 **Streaming next track**\n\n🏷 **Name:** [{op[0]}]({op[1]}) | `{op[2]}`\n💭 **Chat:** `{chat_id}`", disable_web_page_preview=True, reply_markup=keyboard)
-    else:
-       pass
 
 
 async def bash(cmd):

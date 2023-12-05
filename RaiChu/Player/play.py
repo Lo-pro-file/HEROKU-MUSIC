@@ -46,9 +46,7 @@ def ytsearch(query):
 
 async def ytdl(format: str, link: str):
     stdout, stderr = await bash(f'yt-dlp --geo-bypass -g -f "[height<=?720][width<=?1280]" {link}')
-    if stdout:
-        return 1, stdout.split("\n")[0]
-    return 0, stderr
+    return (1, stdout.split("\n")[0]) if stdout else (0, stderr)
 
 chat_id = None
 DISABLED_GROUPS = []
@@ -123,17 +121,14 @@ async def play(c: Client, m: Message):
         if replied.audio or replied.voice:
             suhu = await replied.reply("📥 **Downloading audio...**")
             dl = await replied.download()
-            link = replied.link
             if replied.audio:
                 if replied.audio.title:
                     songname = replied.audio.title[:70]
                 else: 
-                    if replied.audio.file_name:
-                        songname = replied.audio.file_name[:70]
-                    else:
-                        songname = "Audio"
+                    songname = replied.audio.file_name[:70] if replied.audio.file_name else "Audio"
             elif replied.voice:
                 songname = "Voice Note"
+            link = replied.link
             if chat_id in QUEUE:
                 pos = add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 await suhu.delete()
@@ -162,94 +157,90 @@ async def play(c: Client, m: Message):
              except Exception as e:
                 await suhu.delete()
                 await m.reply_text(f"🚫 error:\n\n» {e}")
-        
-    else:
-        if len(m.command) < 2:
-         await m.reply_photo(
-                     photo=f"{IMG_5}",
-                    caption="**🌹𝐓𝐘𝐏𝐄:- /play 𝐆𝐢𝐯𝐞  𝐚  𝐓𝐢𝐭𝐥𝐞  𝐒𝐨𝐧𝐠  𝐓𝐨  𝐏𝐥𝐚𝐲  𝐌𝐮𝐬𝐢𝐜🥀**",
-                      reply_markup=InlineKeyboardMarkup(
+
+    elif len(m.command) < 2:
+        await m.reply_photo(
+            photo=f"{IMG_5}",
+            caption="**🌹𝐓𝐘𝐏𝐄:- /play 𝐆𝐢𝐯𝐞  𝐚  𝐓𝐢𝐭𝐥𝐞  𝐒𝐨𝐧𝐠  𝐓𝐨  𝐏𝐥𝐚𝐲  𝐌𝐮𝐬𝐢𝐜🥀**",
+            reply_markup=InlineKeyboardMarkup(
+                [
                     [
-                        [
-                            InlineKeyboardButton("❅ 𝐆𝐑𝐎𝐔𝐏 ❅", url=f"https://t.me/WOODcraft_Mirror_Topic"),
-                            InlineKeyboardButton("✧ 𝐎𝐅𝐅𝐈𝐂𝐄 ✧", url=f"https://t.me/Opleech")
-                        ]
+                        InlineKeyboardButton(
+                            "❅ 𝐆𝐑𝐎𝐔𝐏 ❅",
+                            url="https://t.me/WOODcraft_Mirror_Topic",
+                        ),
+                        InlineKeyboardButton(
+                            "✧ 𝐎𝐅𝐅𝐈𝐂𝐄 ✧", url="https://t.me/Opleech"
+                        ),
                     ]
-                )
-            )
+                ]
+            ),
+        )
+    else:
+        suhu = await m.reply_text("⚡")
+        query = m.text.split(None, 1)[1]
+        search = ytsearch(query)
+        if search == 0:
+            await suhu.edit("💬 **No Results Found.\n Type Again With Correct Song Name.**")
         else:
-            suhu = await m.reply_text(
-        f"⚡"
-    )
-            query = m.text.split(None, 1)[1]
-            search = ytsearch(query)
-            if search == 0:
-                await suhu.edit("💬 **No Results Found.\n Type Again With Correct Song Name.**")
+            songname = search[0]
+            title = search[0]
+            url = search[1]
+            duration = search[2]
+            thumbnail = search[3]
+            userid = m.from_user.id
+            gcname = m.chat.title
+            videoid = search[4]
+            dlurl = f"https://www.youtubepp.com/watch?v={videoid}"
+            info = f"https://t.me/TG_Manager_Robot_bot?start=info_{videoid}"
+            keyboard = stream_markup(user_id, dlurl)
+            playimg = await play_thumb(videoid)
+            queueimg = await queue_thumb(videoid)
+            await suhu.edit("🌹𝐋𝐨𝐚𝐝𝐢𝐧𝐠...😘")
+            abhi, ytlink = await ytdl("bestaudio", url)
+            if abhi == 0:
+                await suhu.edit(f"💬 yt-dl issues detected\n\n» `{ytlink}`")
+            elif chat_id in QUEUE:
+                pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
+                await suhu.delete()
+                requester = (
+                    f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
+                )
+                await m.reply_photo(
+                    photo=queueimg,
+                    caption=f"🥳𝐀𝐝𝐝𝐞𝐝 𝐎𝐧 𝐋𝐢𝐧𝐞 {pos}\n\n✨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:{requester}\n\n💞𝐒𝐨𝐧𝐠 𝐈𝐧𝐟𝐨- [🥀𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞🥀]({info})",
+                    reply_markup=InlineKeyboardMarkup(keyboard),
+                )
             else:
-                songname = search[0]
-                title = search[0]
-                url = search[1]
-                duration = search[2]
-                thumbnail = search[3]
-                userid = m.from_user.id
-                gcname = m.chat.title
-                videoid = search[4]
-                dlurl = f"https://www.youtubepp.com/watch?v={videoid}"
-                info = f"https://t.me/TG_Manager_Robot_bot?start=info_{videoid}"
-                keyboard = stream_markup(user_id, dlurl)
-                playimg = await play_thumb(videoid)
-                queueimg = await queue_thumb(videoid)
-                await suhu.edit(
-                            f"🌹𝐋𝐨𝐚𝐝𝐢𝐧𝐠...😘"
-                        )
-                format = "bestaudio"
-                abhi, ytlink = await ytdl(format, url)
-                if abhi == 0:
-                    await suhu.edit(f"💬 yt-dl issues detected\n\n» `{ytlink}`")
-                else:
-                    if chat_id in QUEUE:
-                        pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
-                        await suhu.delete()
-                        requester = (
-                            f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
-                        )
-                        await m.reply_photo(
-                            photo=queueimg,
-                            caption=f"🥳𝐀𝐝𝐝𝐞𝐝 𝐎𝐧 𝐋𝐢𝐧𝐞 {pos}\n\n✨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:{requester}\n\n💞𝐒𝐨𝐧𝐠 𝐈𝐧𝐟𝐨- [🥀𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞🥀]({info})",
-                            reply_markup=InlineKeyboardMarkup(keyboard),
-                        )
-                    else:
-                        try:
-                            await suhu.edit(
-                            f"❣️𝐏𝐥𝐚𝐲𝐢𝐧𝐠 𝐖𝐚𝐢𝐭 𝐁𝐚𝐛𝐲😁"
-                        )
-                            await call_py.join_group_call(
+                try:
+                    await suhu.edit("❣️𝐏𝐥𝐚𝐲𝐢𝐧𝐠 𝐖𝐚𝐢𝐭 𝐁𝐚𝐛𝐲😁")
+                    await call_py.join_group_call(
 
-                                chat_id,
+                        chat_id,
 
-                                AudioImagePiped(
+                        AudioImagePiped(
 
-                                          ytlink,
+                                  ytlink,
 
-                                          playimg,
+                                  playimg,
 
-                               video_parameters=MediumQualityVideo(),
+                       video_parameters=MediumQualityVideo(),
 
-                            ),
+                    ),
 
-                               stream_type=StreamType().local_stream,
+                       stream_type=StreamType().local_stream,
 
-                            )
+                    )
 
-                            add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
+                    add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
 
-                            await suhu.delete()
-                            requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
-                            await m.reply_photo(
-                                photo=playimg,
-                                caption=f"🎉𝐒𝐭𝐚𝐫𝐭𝐞𝐝 𝐏𝐥𝐲𝐢𝐧𝐠 𝐔𝐫 𝐂𝐮𝐭𝐞 𝐌𝐮𝐬𝐢𝐜😍\n\n✨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:{requester}\n\n💞𝐒𝐨𝐧𝐠 𝐈𝐧𝐟𝐨:- [🥀𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞🥀]({info})",
-                                reply_markup=InlineKeyboardMarkup(keyboard),
-                            )
-                        except Exception as ep:
-                            await suhu.delete()
-                            await m.reply_text(f"💬 error: `{ep}`")
+                    await suhu.delete()
+                    requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
+                    await m.reply_photo(
+                        photo=playimg,
+                        caption=f"🎉𝐒𝐭𝐚𝐫𝐭𝐞𝐝 𝐏𝐥𝐲𝐢𝐧𝐠 𝐔𝐫 𝐂𝐮𝐭𝐞 𝐌𝐮𝐬𝐢𝐜😍\n\n✨𝐏𝐥𝐚𝐲𝐞𝐝 𝐁𝐲:{requester}\n\n💞𝐒𝐨𝐧𝐠 𝐈𝐧𝐟𝐨:- [🥀𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞🥀]({info})",
+                        reply_markup=InlineKeyboardMarkup(keyboard),
+                    )
+                except Exception as ep:
+                    await suhu.delete()
+                    await m.reply_text(f"💬 error: `{ep}`")
